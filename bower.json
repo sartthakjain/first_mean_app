@@ -1,0 +1,12 @@
+{
+  "name": "angular",
+  "version": "1.5.8",
+  "license": "MIT",
+  "main": "./angular.js",
+  "ignore": [],
+  "dependencies": {
+      "angular": "1.5.x",
+      "angular-mocks": "1.5.x",
+      "bootstrap": "3.3.x"
+    }
+}
