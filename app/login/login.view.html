@@ -1,0 +1,12 @@
+<html ng-app="loginView" ng-controller="LoginController">
+<head>
+  <script src="login.view.module.js"></script>
+  <script src="login.view.component.js"></script>
+</head>
+
+<h2>LOGIN</h2>
+<input ng-model="login.email" type="text" placeholder="username"/>
+<input ng-model="login.password" type="password" placeholder="password"/>
+<button ng-click="logUserIn()" type="submit">Login</button>
+
+</html>

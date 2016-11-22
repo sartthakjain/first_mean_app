@@ -1,0 +1,46 @@
+<html ng-app="firstMeanApp">
+<head>
+<title>Discuss Me</title>
+
+<script src="node_modules/bower_components/angular/angular.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+
+<script src="app/login/login.view.module.js"></script>
+<script src="app/login/login.controller.js"></script>
+<script src="app/signup/signup.module.js"></script>
+<script src="app/signup/signup.controller.js"></script>
+<script src="app/editProfile/editProfile.module.js"></script>
+<script src="app/editProfile/editProfile.controller.js"></script>
+<script src="app/app.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+<link rel="stylesheet" href="node_modules/bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+</head>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container" ng-controller="LoginController"  ng-app="loginView" >
+
+    <div ng-show="!loggedIn">
+    <h2>LOGIN</h2>
+    <input ng-model="login.email" type="text" placeholder="username"/>
+    <input ng-model="login.password" type="password" placeholder="password"/>
+    <button ng-click="logUserIn()" type="submit">Login</button>
+    <a ui-sref="signUp">Create an account</a>
+    </div>
+    <div ng-show="loggedIn"><a ui-sref="editProfileState">Edit Profile</a></div>
+
+
+  </div>
+</nav>
+<body>
+  <div ui-view style="position:fixed;top:50%;"></div>
+
+
+</body>
+</html>

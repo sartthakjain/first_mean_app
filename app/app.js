@@ -1,0 +1,14 @@
+angular.module("firstMeanApp",['ui.router','ngFileUpload','loginView','signup','editProfile'])
+.config(function($stateProvider){
+  $stateProvider
+      .state('signUp',{
+        url:"/signup",
+        templateUrl:"app/signup/signup.html",
+        controller:"signupController"
+      })
+      .state('editProfileState',{
+        url:"/editProfile",
+        templateUrl:"app/editProfile/editProfile.view.html",
+        controller:"editProfileController"
+      })
+});
