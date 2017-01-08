@@ -9,16 +9,40 @@ module.exports.signup=function(req,resp){
   resp.json(req.body);
 }
 
+module.exports.checkUsername=function(req,resp){
+  User.find({email:req.body.email},function(err,results){
+    if(err){
+      console.log("error in checkUsername");
+    }else{
+      if(results && results.length===1){
+        resp.json({isValid:true});
+        console.log("email validated");
+      }else{
+            resp.json({isValid:false});
+            console.log("email invalidated");
+          }
+    }
+  })
+}
+
+
 
 //checks the login credentials
 module.exports.login=function(req,resp){
-  User.find(req.body,function(err,results){
+  User.find({email:req.body.email,password:req.body.password},function(err,results){
+
     if(err){
       console.log("Error Out");
     }
     if(results && results.length===1){
       var userData=results[0];
-      resp.json({email:req.body.email,_id:userData._id});
+      resp.json({email:req.body.email,
+                _id:userData._id,
+                username:userData.username,
+                image:userData.image});
+                console.log(resp.body);
+    }else{
+      console.log("incorrect password");
     }
 
 

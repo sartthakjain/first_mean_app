@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "1.5.x",
+    "angular-animate": "^1.5.9",
     "angular-mocks": "1.5.x",
     "body-parser": "^1.15.2",
     "bootstrap": "3.3.x",

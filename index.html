@@ -6,6 +6,7 @@
 <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
 <script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
 <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+<script src="node_modules/angular-animate/angular-animate.js"></script>
 
 <script src="app/login/login.view.module.js"></script>
 <script src="app/login/login.controller.js"></script>
@@ -13,7 +14,12 @@
 <script src="app/signup/signup.controller.js"></script>
 <script src="app/editProfile/editProfile.module.js"></script>
 <script src="app/editProfile/editProfile.controller.js"></script>
+<script src="app/main/main.module.js"></script>
+<script src="app/main/main.controller.js"></script>
+<script src="app/follow/follow.module.js"></script>
+<script src="app/follow/follow.controller.js"></script>
 <script src="app/app.js"></script>
+<link rel="stylesheet" href="css/login.css"/>
 
 
 
@@ -23,23 +29,24 @@
 
 </head>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container" ng-controller="LoginController"  ng-app="loginView" >
-
-    <div ng-show="!loggedIn">
-    <h2>LOGIN</h2>
-    <input ng-model="login.email" type="text" placeholder="username"/>
-    <input ng-model="login.password" type="password" placeholder="password"/>
-    <button ng-click="logUserIn()" type="submit">Login</button>
-    <a ui-sref="signUp">Create an account</a>
-    </div>
-    <div ng-show="loggedIn"><a ui-sref="editProfileState">Edit Profile</a></div>
-
+  <nav class="navbar navbar-default navbar-fixed-top" ng-controller="loginController">
+    <div class="navbar-header">
+      <a class="navbar-brand">i-THINK</a>
+</div>
+<div ng-show="loggedIn">
+  <a ui-sref="editProfileState">Edit Profile</a>
+<a ui-sref="follow">Follow Users</a>
+  <a ng-click="logOut();">Logout</a>
+</div>
 
   </div>
 </nav>
-<body>
-  <div ui-view style="position:fixed;top:50%;"></div>
+<body style="padding:60px;">
+
+
+
+  <div ui-view ></div>
+
 
 
 </body>

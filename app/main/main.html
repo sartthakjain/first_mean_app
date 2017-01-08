@@ -1,0 +1,34 @@
+<div class="col-sm-10 col-sm-offset-1"  ng-controller="mainController"  ng-app="main">
+<div class="row">
+
+<textarea ng-model="newThought"
+          ng-keypress="sendThought($event)"
+          class="form-control"
+          placeholder="Write ur thought...{{$scope.loggedIn}}..nd press enter">
+
+</textarea>
+
+
+</div>
+
+<div class="row">
+<table>
+  <tr ><a ng-if="incomingThoughts" ng-click="showNewThoughts();">{{difference}} new thoughts</a></tr>
+  <tr ng-repeat="thought in thoughts" style="padding:5px;">
+<td>
+<image ng-src="{{thought.userImage}}" class="img-responsive" style="width:100px;height:100px;">
+</td>
+<td>
+  <strong>{{thought.user}}</strong> <br>
+  <p>{{thought.content}}</p>
+</td>
+<td>
+{{thought.date|date: 'MM/dd/yyyy hh:mm'}}
+</td>
+
+  </tr>
+</table>
+
+
+</div>
+</div>

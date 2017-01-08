@@ -1,12 +1,29 @@
-<html ng-app="loginView" ng-controller="LoginController">
-<head>
-  <script src="login.view.module.js"></script>
-  <script src="login.view.component.js"></script>
-</head>
-
-<h2>LOGIN</h2>
-<input ng-model="login.email" type="text" placeholder="username"/>
-<input ng-model="login.password" type="password" placeholder="password"/>
-<button ng-click="logUserIn()" type="submit">Login</button>
-
-</html>
+<div class="text-center" style="padding:50px 0" ng-controller="loginController"  ng-app="loginView" ng-show="!loggedIn" >
+  <div class="logo">login</div>
+  <!-- Main Form -->
+  <div class="login-form-1">
+    <form id="login-form" class="text-left">
+      <div class="login-form-main-message"></div>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            <input type="text" class="form-control" id="lg_username"  placeholder="email"  ng-model="login.email" ng-blur="checkUsername();">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="lg_password" placeholder="password"  ng-model="login.password" ng-show="emailValid">
+          </div>
+          <div class="form-group login-group-checkbox">
+            <input type="checkbox" id="lg_remember" name="lg_remember">
+            <label for="lg_remember">remember</label>
+          </div>
+        </div>
+        <button type="submit" class="login-button" ng-click="logUserIn();"><i class="fa fa-chevron-right"></i></button>
+      </div>
+      <div class="etc-login-form">
+        <p>forgot your password? <a href="#">click here</a></p>
+        <p>new user?  <a  ui-sref="signUp">Create an account</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- end:Main Form -->
+</div>

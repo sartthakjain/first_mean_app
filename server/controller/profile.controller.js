@@ -9,9 +9,9 @@ module.exports.updatePhoto= function(req,resp){
   console.log("user "+userId+" is submitting ",file);
 
 var tempPath= file.path;
-var uploadDate=new Date().toISOString;
-var targetPath=path.join(__dirname,"../../uploads/"+userId + uploadDate + file.name);
-var savePath = "/uploads/"+userId + uploadDate + file.name;
+var uploadDate=new Date();
+var targetPath=path.join(__dirname,"../../uploads/"+userId  + file.name);
+var savePath = "/uploads/"+userId  + file.name;
 fs.rename(tempPath,targetPath,function(err){
   if(err){
   console.log(err);
@@ -22,10 +22,10 @@ User.findById(userId,function(err,userData){
   user.save(function(err){
     if(err){
       console.log("failed save");
-      res.json({status:500});
+      resp.json({status:500});
     }else{
       console.log("save successful");
-      res.json({status:200});
+      resp.json({status:200});
     }
   })
 })
